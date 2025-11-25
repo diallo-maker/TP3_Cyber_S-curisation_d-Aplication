@@ -28,9 +28,9 @@ Une fois celà fait, on vérifie le résultat et on constate que les mots de pas
 ##
 ## Attaque 2: BD fuitée et encryption
 
-1. Etape 1 + copie d'écran
-2. Etape 2 + copie d'écran
-3. etc.
+Dans la base de donnée, les NAS sont chiffrés avec une logique de base qui chaque lettre de l'aphabet par un chiffre de 0 à 9 et recommence en boucle jusqu'à la lettre Z.
+J'ai fait 10 tests avec des utilisateurs différents et un NAS différent de 1 à 9 pour trouver la logique.
+![NAS](nas.png)
 
 ### Correctif implanté
 
