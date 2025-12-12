@@ -43,9 +43,11 @@ Une fois fait, on peut constater que dans la base de donnée dans la table MUtil
 ##
 ## Attaque 3 Injection SQL
 
-1. Etape 1 + copie d'écran
-2. Etape 2 + copie d'écran
-3. etc.
+On peut injecter du code SQL directement dans l'application pour notamment detruire la base de donnée completement. Pour ce faire, il faut aller dans Connexion et ensuite faire la commande ci-dessous et la base de  donnée sera detruite.
+
+##
+![SQL effacer BD](effacer_bd.png)
+##
 
 ### Correctif implanté
 
