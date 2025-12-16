@@ -59,4 +59,5 @@ Il est aussi possible de modifier le mot de passe des utilisateurs via injection
 
 ### Correctif implanté
 
-Pour le correctif, il faut pour empecher les injections sql, 
+Pour le correctif, il faut pour empecher les injections sql, j'ai changer le code source de l'application enlever les concaténations et ajouter des parametres comme ca si une personne essaye l'injection, le code rentré sera considéré comme du texte.
+
