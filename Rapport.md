@@ -49,8 +49,14 @@ On peut injecter du code SQL directement dans l'application pour notamment detru
 ![SQL effacer BD](effacer_bd.png)
 ##
 
+Il est aussi possible de modifier le mot de passe des utilisateurs via injection SQL. Avec la commande ci-dessous, on peut modifier le mot de passe de l'utilisateur Justin Trudeau sans avoir de persmission ni accès au compte de l'utilisateur.
+
+##
+![SQL MDP](SQL_mdp.png)
+
+##
+![SQL resultat](SQL_resultat.png)
+
 ### Correctif implanté
 
-Description du correctif.
-
-Preuve que l'attaque ne fonctionne plus avec étapes + copie d'écran
+Pour le correctif, il faut pour empecher les injections sql, 
