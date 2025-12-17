@@ -72,10 +72,10 @@ namespace consoleApp
             sqlite_conn.Open();
             SqliteCommand sqlite_cmd;
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "INSERT INTO MUtilisateur (nom, motDePasse, nas) " +
-                                     "VALUES('" + compte.Nom + "', '" +
-                                     DonneesSecurite.HacherLeMotDePasse(compte.MotDePasse) + "', '" +
-                                     DonneesSecurite.Encrypter(compte.NAS) + "'); ";
+            sqlite_cmd.CommandText = "INSERT INTO MUtilisateur (nom, motDePasse, nas) VALUES (@nom, @motDePasse, @nas)";
+            sqlite_cmd.Parameters.AddWithValue("@nom", compte.Nom);
+            sqlite_cmd.Parameters.AddWithValue("@motDePasse", DonneesSecurite.HacherLeMotDePasse(compte.MotDePasse));
+            sqlite_cmd.Parameters.AddWithValue("@nas", DonneesSecurite.Encrypter(compte.NAS));
             sqlite_cmd.ExecuteNonQuery();
             sqlite_conn.Close();
         }
@@ -112,7 +112,9 @@ namespace consoleApp
             sqlite_cmd = sqlite_conn.CreateCommand();
             List<DonneesAnneeRevenu> liste = new List<DonneesAnneeRevenu>();
             // exécute la requête et obtient les données
-            sqlite_cmd.CommandText = "SELECT * FROM MAnneeRevenu WHERE nom = '" + utilisateurConnecte + "'";
+            sqlite_cmd.CommandText = "SELECT * FROM MAnneeRevenu WHERE nom = @nom";
+            sqlite_cmd.Parameters.AddWithValue("@nom", utilisateurConnecte);
+
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             while (sqlite_datareader.Read())
             {
@@ -131,7 +133,8 @@ namespace consoleApp
             SqliteDataReader sqlite_datareader;
             SqliteCommand sqlite_cmd;
             sqlite_cmd = sqlite_conn.CreateCommand();
-            sqlite_cmd.CommandText = "SELECT * FROM MUtilisateur WHERE nom = '" + nom + "'";
+            sqlite_cmd.CommandText = "SELECT * FROM MUtilisateur WHERE nom = @nom";
+            sqlite_cmd.Parameters.AddWithValue("@nom", nom);
 
             sqlite_datareader = sqlite_cmd.ExecuteReader();
             DonneesUtilisateur compte = new DonneesUtilisateur();

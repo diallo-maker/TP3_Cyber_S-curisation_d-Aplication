@@ -54,10 +54,19 @@ Il est aussi possible de modifier le mot de passe des utilisateurs via injection
 ##
 ![SQL MDP](SQL_mdp.png)
 
-##
+## Avant
+![resultat Bcrypt](resultat_Bcrypt.png)
+## Après
 ![SQL resultat](SQL_resultat.png)
 
 ### Correctif implanté
 
 Pour le correctif, il faut pour empecher les injections sql, j'ai changer le code source de l'application enlever les concaténations et ajouter des parametres comme ca si une personne essaye l'injection, le code rentré sera considéré comme du texte.
+##
+![SQL fix utilisateur](fix_utilisateur.png)
 
+##
+![SQL fix nom](fix_nom.png)
+
+##
+![SQL fix revenu](fix_bdrevenu.png)
