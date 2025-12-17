@@ -3,16 +3,16 @@
 
 ## Attaque 1: BD fuitée et mot de passe
 
-Emplacement de la BD (utiliser system informer)
+### Emplacement de la BD (utiliser system informer)
 ![base de donnée](bd.png)
 
- Ouverture de la BD avec DataGrip
+### Ouverture de la BD avec DataGrip
 ![datagrip](database.png)
 
- il y a 3 tables (XML)
+### Il y a 3 tables (XML)
 ![tables](tables.png)
 
- on peut voir les mots de passe (hachs) et les NAS 
+### On peut voir les mots de passe (hachs) et les NAS 
 ![mots de passe](mdp.png)
 
 ### Correctif implanté
@@ -36,7 +36,8 @@ J'ai fait 10 tests avec des utilisateurs différents et un NAS différent de 1 �
 
 Pour le correctif, j'ai encrypté les NAS par encryption symétrique avec blowfish. Cela consiste à cacher les NAS présents dans la BD. Donc, pour ce faire, on doit installer le packet Encryption.Blowfish, qui va permettre d'utiliser la librairie blowfish. Ensuite, il faut modifier le code source de l'application et y ajouter using Encryption.Blowfish dans un premier temps en haut du code. Par la suite, il faut remplacer le code présent dans DonneesSecurite.cs dans les méthodes Encrypter et Decrypter par les lignes de code suivantes:
 ![blowfish](blowfish.png)
-##
+
+#
 Une fois fait, on peut constater que dans la base de données, dans la table MUtilisateur, tous les NAS sont encryptés donc il n'est pas possible de voir les NAS via la BD.
 
 ![resultat NAS](resultat_NAS.png)
